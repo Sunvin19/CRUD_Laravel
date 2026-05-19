@@ -4,7 +4,6 @@
 
 @section('content')
     <h2>Listado de Notas</h2>
-
     @forelse ($notes as $note)
         <div>
             <h3>{{ $note->title }}</h3>

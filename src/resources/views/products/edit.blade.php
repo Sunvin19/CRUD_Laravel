@@ -4,6 +4,9 @@
 
 @section('content')
     <h2>Editar Producto</h2>
+        @foreach ($errors->all() as $error)
+        <div style="color: red">{{ $error }}</div>
+    @endforeach
     <form action="{{ route('product.update', $product->id) }}" method="POST">
         @csrf
         @method('PUT')

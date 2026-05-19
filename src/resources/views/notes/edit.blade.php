@@ -4,6 +4,9 @@
 
 @section('content')
     <h2>Editar Nota</h2>
+        @foreach ($errors->all() as $error)
+        <div style="color: red">{{ $error }}</div>
+    @endforeach
     <form action="{{ route('note.update', $note->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -17,7 +20,7 @@
         <input type="date" name="date" value="{{ $note->date }}" required>
 
         <label>Completada:</label>
-        <input type="checkbox" name="done" {{ $note->done ? 'checked' : '' }}>
+        <input type="checkbox" name="done" value="1" {{ $note->done ? 'checked' : '' }}>
 
         <button type="submit">Actualizar</button>
         <a href="{{ route('note.index') }}">Cancelar</a>
