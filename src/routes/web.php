@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ClientController;
 use App\Models\Product;
 
 Route::get('/', function () {
@@ -29,3 +30,5 @@ Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name(
 Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
 Route::delete('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 Route::get('/product/show/{product}', [ProductController::class, 'show'])->name('product.show');
+
+Route::resource('/clients', ClientController::class);
